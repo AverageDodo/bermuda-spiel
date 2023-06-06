@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TimerPanel extends JPanel {
+	public int getSeconds() {
+		return seconds;
+	}
+
 	private int seconds;
 	public JLabel timerLabel;
 	public Timer timer;

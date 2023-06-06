@@ -1,7 +1,7 @@
 package UI;
 
 import GameLogic.BermudaSpiel;
-import GameLogic.Flotte;
+import GameLogic.Scores;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -56,7 +56,8 @@ public class Spielfelder extends JPanel {
 				}
 				if (BermudaSpiel.getInstance().getFlotte().gewonnen()) {
 					TimerPanel.getInstance().timer.stop();
-					JOptionPane.showMessageDialog(BermudaPanel.getInstance(), "E");
+					String name = JOptionPane.showInputDialog(BermudaPanel.getInstance(), "Please enter your name!");
+					Scores.getInstance().addScore(TimerPanel.getInstance().getSeconds(), name);
 				}
 			}
 		};
