@@ -1,17 +1,10 @@
 package UI;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class BermudaFrame extends JFrame {
     public JPanel mainPanel;
-    public JLayeredPane layeredPane;
-    private static BermudaFrame frameInstance = new BermudaFrame();
+    private static final BermudaFrame frameInstance = new BermudaFrame();
     public static BermudaFrame getInstance() {
         return frameInstance;
     }

@@ -1,9 +1,7 @@
 package GameLogic;
 
 import UI.BermudaPanel;
-import UI.BermudaFrame;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -21,7 +19,7 @@ public class BermudaSpiel {
 
     public void search(Point point) {
         if (flotte.istHierSchiff(point)) {
-            BermudaPanel.getInstance().getPanel(point).setLabel("X");
+            BermudaPanel.getInstance().getPanel(point).setFigureLabel("X");
 
         } else {
             checkedPanels.clear();
@@ -36,7 +34,7 @@ public class BermudaSpiel {
             inSicht += directionalSearch(point, 1, 0);
             inSicht += directionalSearch(point, 1, 1);
 
-            BermudaPanel.getInstance().getPanel(point).setLabel(String.valueOf(inSicht));
+            BermudaPanel.getInstance().getPanel(point).setFigureLabel(String.valueOf(inSicht));
             if (inSicht == 0) {
                 BermudaPanel.getInstance().getPanel(point).givePanels(checkedPanels);
             }

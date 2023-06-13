@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class Spielfelder extends JPanel {
 	@SuppressWarnings("FieldMayBeFinal")
-	public JLabel label;
+	public JLabel figureLabel;
 	public Point panelPosition = new Point();
 	public MouseListener mouseListener;
 	public ArrayList<Point> revealOnClick = new ArrayList<>();
@@ -36,7 +36,7 @@ public class Spielfelder extends JPanel {
 					TimerPanel.getInstance().timerLabel.setVisible(true);
 				}
 
-				if (Objects.equals(label.getText(), "X")) {
+				if (Objects.equals(figureLabel.getText(), "X")) {
 					BermudaSpiel.getInstance().getFlotte().setSchiffGefunden(panelPosition);
 
 				}
@@ -68,21 +68,22 @@ public class Spielfelder extends JPanel {
 		this.setBorder(new LineBorder(Color.BLACK, 2, true));
 		this.setVisible(true);
 
-		label = new JLabel();
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		this.add(label, BorderLayout.CENTER);
-		label.setVisible(false);
+		figureLabel = new JLabel();
+		figureLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		this.add(figureLabel, BorderLayout.CENTER);
+		figureLabel.setVisible(false);
 	}
-	public void setLabel(String str) {
-		label.setText(str);
+
+	public void setFigureLabel(String str) {
+		figureLabel.setText(str);
 	}
 	public void revealPanel(Point p) {
 		BermudaPanel.getInstance().getPanel(p).setBackground(Color.red);
-		BermudaPanel.getInstance().getPanel(p).label.setVisible(true);
+		BermudaPanel.getInstance().getPanel(p).figureLabel.setVisible(true);
 	}
 	public void hidePanel(Point p) {
 		BermudaPanel.getInstance().getPanel(p).setBackground(Color.white);
-		BermudaPanel.getInstance().getPanel(p).label.setVisible(false);
+		BermudaPanel.getInstance().getPanel(p).figureLabel.setVisible(false);
 	}
 	public void selectPanel(Point p) {
 		BermudaPanel.getInstance().getPanel(p).setBackground(Color.red);
@@ -97,8 +98,8 @@ public class Spielfelder extends JPanel {
 	}
 	public void resetPanel() {
 		this.setBackground(Color.white);
-		this.label.setText("");
-		this.label.setVisible(false);
+		this.figureLabel.setText("");
+		this.figureLabel.setVisible(false);
 		this.revealOnClick.clear();
 	}
 }

@@ -2,18 +2,14 @@ package UI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TimerPanel extends JPanel {
-	public int getSeconds() {
-		return seconds;
-	}
 
 	private int seconds;
 	public JLabel timerLabel;
 	public Timer timer;
-	private static TimerPanel timerPanel = new TimerPanel();
+	private static final TimerPanel timerPanel = new TimerPanel();
 	public static TimerPanel getInstance() {
 		return timerPanel;
 	}
@@ -28,14 +24,17 @@ public class TimerPanel extends JPanel {
 
 		this.add(timerLabel, BorderLayout.CENTER);
 
+		// Jede Sekunden, mach...
 		ActionListener actionListener = e -> {
 			seconds++;
-			timerLabel.setText(Integer.toString(seconds / 10) + Integer.toString(seconds % 10));
+			timerLabel.setText(seconds + " ");
 		};
 
 		timer = new Timer(1000, actionListener);
 	}
-
+	public int getSeconds() {
+		return seconds;
+	}
 	public void resetTimer() {
 		this.timer.stop();
 		this.seconds = 0;

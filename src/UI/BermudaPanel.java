@@ -2,8 +2,6 @@ package UI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 @SuppressWarnings("CanBeFinal")
 public class BermudaPanel extends JPanel {
