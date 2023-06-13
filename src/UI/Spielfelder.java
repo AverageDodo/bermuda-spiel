@@ -58,6 +58,7 @@ public class Spielfelder extends JPanel {
 					TimerPanel.getInstance().timer.stop();
 					String name = JOptionPane.showInputDialog(BermudaPanel.getInstance(), "Please enter your name!");
 					Scores.getInstance().addScore(TimerPanel.getInstance().getSeconds(), name);
+					JOptionPane.showMessageDialog(BermudaPanel.getInstance(), Scores.getInstance().printScores());
 				}
 			}
 		};

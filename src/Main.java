@@ -1,7 +1,9 @@
 import GameLogic.BermudaSpiel;
 import GameLogic.Scores;
 import UI.BermudaFrame;
+import UI.BermudaPanel;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Main {

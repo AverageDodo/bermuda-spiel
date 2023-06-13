@@ -1,11 +1,9 @@
 package GameLogic;
 
-import UI.BermudaFrame;
 import UI.BermudaPanel;
 
 import javax.swing.*;
 import java.io.*;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -15,7 +13,8 @@ public class Scores {
 	public static Scores getInstance() {
 		return scoresInstance;
 	}
-	private final String fileName = System.getProperty("user.dir") + "scores.txt";
+	//Bestimmt den Speicherort für die Scores-Datei
+	private final String fileName = System.getProperty("user.dir") + "/src/scores.txt";
 	private final Map<Integer, String> sortedScores = new TreeMap<>();
 
 	private Scores() {
@@ -32,7 +31,6 @@ public class Scores {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(BermudaPanel.getInstance(), "Error loading scores");
 		}
-
 	}
 
 	public void addScore(int score, String name) {
